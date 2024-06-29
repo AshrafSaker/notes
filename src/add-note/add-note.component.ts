@@ -35,6 +35,7 @@ export class AddNoteComponent {
       };
       NOTES.unshift(newNote);
       this.addNoteForm.reset();
+      alert("Your Notes Added!!!")
     }
   };
 
