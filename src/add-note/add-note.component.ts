@@ -19,10 +19,7 @@ export class AddNoteComponent {
     }
   );
   router = inject(Router);
-  navigate() {
 
-    this.router.navigateByUrl('/');
-  }
   addNote(){
     let title = this.addNoteForm.value.title ?? '';
     let text = this.addNoteForm.value.text ?? '';
@@ -41,7 +38,7 @@ export class AddNoteComponent {
       NOTES.unshift(newNote);
       this.addNoteForm.reset();
       alert("Your Notes Added!!!");
-      this.navigate();
+      this.router.navigateByUrl('/');
       }
 
 }}
