@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component ,inject} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { NOTES } from '../notes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-note',
@@ -17,7 +18,11 @@ export class AddNoteComponent {
       text: new FormControl(''),
     }
   );
+  router = inject(Router);
+  navigate() {
 
+    this.router.navigateByUrl('/');
+  }
   addNote(){
     let title = this.addNoteForm.value.title ?? '';
     let text = this.addNoteForm.value.text ?? '';
@@ -35,8 +40,8 @@ export class AddNoteComponent {
       };
       NOTES.unshift(newNote);
       this.addNoteForm.reset();
-      alert("Your Notes Added!!!")
-    }
-  };
+      alert("Your Notes Added!!!");
+      this.navigate();
+      }
 
-}
+}}
