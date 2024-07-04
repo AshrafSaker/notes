@@ -43,6 +43,7 @@ h2 {
 nav button {
   width: auto;
   display: inline-block;
+  text-align: center;
   padding: 10px;
   border-radius: 20px;
   background-color: #007bff;
